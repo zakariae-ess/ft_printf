@@ -6,7 +6,7 @@
 /*   By: zessalih <zessalih@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 16:29:33 by zessalih          #+#    #+#             */
-/*   Updated: 2026/11/21 00:10:19 by zessalih         ###   ########.fr       */
+/*   Updated: 2026/11/21 09:44:19 by zessalih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	ft_printf(const char *str, ...)
 			index++;
 		}
 	}
+	va_end(args);
 	return (total);
 }
