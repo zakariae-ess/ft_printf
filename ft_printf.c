@@ -6,7 +6,7 @@
 /*   By: zessalih <zessalih@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 16:29:33 by zessalih          #+#    #+#             */
-/*   Updated: 2026/11/21 09:44:19 by zessalih         ###   ########.fr       */
+/*   Updated: 2026/11/22 17:29:52 by zessalih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	size_t	index;
 	int		total;
+	int		val;
 
-	index = 0;
 	total = 0;
 	va_start(args, str);
 	if (!str)
 		return (-1);
-	while (str[index])
+	while (*str)
 	{
-		if (ft_check_char((char *)str + index) == -1)
+		val = ft_check_char(str);
+		if (val == -1)
 			return (-1);
-		if (!ft_check_char((char *)str + index)
-			|| (ft_check_char((char *)str + index) == 2 && ++index))
-			total += write(1, (char *)str + index++, 1);
+		if (val == 0 || (str++ && val == 2))
+			val = write(1, str, 1);
 		else
-		{
-			total += ft_convert(str[++index], args);
-			index++;
-		}
+			val = ft_convert(*str, &args);
+		if (val == -1)
+			return (-1);
+		total += val;
+		str++;
 	}
 	va_end(args);
 	return (total);

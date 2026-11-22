@@ -6,7 +6,7 @@
 /*   By: zessalih <zessalih@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 21:31:35 by zessalih          #+#    #+#             */
-/*   Updated: 2026/11/21 10:19:53 by zessalih         ###   ########.fr       */
+/*   Updated: 2026/11/22 16:30:45 by zessalih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,14 @@ int	ft_put_char(char c)
 
 int	ft_put_str(char *s)
 {
-	int	total;
+	int	len;
 
-	total = 0;
+	len = 0;
 	if (s == NULL)
 		s = "(null)";
-	while (*s)
-	{
-		if (write(1, s, 1) == -1)
-			return (total);
-		total++;
-		s++;
-	}
-	return (total);
+	while (s[len])
+		len++;
+	if (write(1, s, len) != len)
+		return (-1);
+	return (len);
 }
