@@ -6,7 +6,7 @@
 /*   By: zessalih <zessalih@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 21:58:52 by zessalih          #+#    #+#             */
-/*   Updated: 2026/11/21 11:53:31 by zessalih         ###   ########.fr       */
+/*   Updated: 2026/11/22 10:01:56 by zessalih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_put_ptr(unsigned long long p)
 	int	total;
 
 	total = 0;
-	if(p == 0)
+	if (p == 0)
 	{
 		return (ft_put_str("(nil)"));
 	}

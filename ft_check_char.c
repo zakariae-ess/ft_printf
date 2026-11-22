@@ -6,24 +6,21 @@
 /*   By: zessalih <zessalih@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 17:58:27 by zessalih          #+#    #+#             */
-/*   Updated: 2026/11/20 23:52:17 by zessalih         ###   ########.fr       */
+/*   Updated: 2026/11/22 10:01:12 by zessalih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_char(void *p)
+int	ft_check_char(char *p)
 {
-	unsigned char	*s;
-
-	s = p;
-	if (*s != '%')
+	if (*p != '%')
 		return (0);
-	s++;
-	if (*s == '%')
+	p++;
+	if (*p == '%')
 		return (2);
-	if ((*s >= 'a' && *s <= 'z')
-		|| (*s >= 'A' && *s < 'Z'))
+	if ((*p >= 'a' && *p <= 'z')
+		|| (*p >= 'A' && *p < 'Z'))
 		return (1);
 	return (-1);
 }
