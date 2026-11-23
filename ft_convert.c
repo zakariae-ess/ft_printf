@@ -6,7 +6,7 @@
 /*   By: zessalih <zessalih@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 21:02:56 by zessalih          #+#    #+#             */
-/*   Updated: 2026/11/22 16:33:02 by zessalih         ###   ########.fr       */
+/*   Updated: 2026/11/23 16:19:38 by zessalih         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	ft_convert(unsigned char c, va_list *args)
 		return (ft_put_hex(va_arg(*args, unsigned int)));
 	if (c == 'X')
 		return (ft_put_uhex(va_arg(*args, unsigned int)));
-	return (write(1, str, 1));
+	write(1, str,2);
+	return (-1);
 }
